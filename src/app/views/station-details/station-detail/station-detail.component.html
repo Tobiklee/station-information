@@ -1,1 +1,15 @@
-<p>station-detail works!</p>
+<div class="flex flex-col">
+  <div *ngIf="facilities$ | async as facilities else noData">
+    <div *ngIf="facilities.length else noData">
+      <div class="text-center font-bold m-2">Facilities</div>
+      <app-facility
+        class="m-2"
+        *ngFor="let facility of facilities"
+        [facility] = "facility"
+      ></app-facility>
+    </div>
+  </div>
+  <ng-template #noData>
+    <div class="mx-auto text-center m-4" >Keine Facilities gefunden</div>
+  </ng-template>
+</div>
