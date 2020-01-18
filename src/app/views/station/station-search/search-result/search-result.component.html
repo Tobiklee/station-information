@@ -1,1 +1,6 @@
-<p>search-result works!</p>
+<div class="container mx-auto border border-black rounded p-2 hover:bg-gray-200">
+    <div class="text-center font-bold">{{ station.name }}</div>
+    <div class="text-center">Stadt: {{ station.mailingAddress.city }}</div>
+    <div class="text-center">Plz: {{ station.mailingAddress.zipcode }}</div>
+    <div class="text-center">Straße: {{ station.mailingAddress.street }}</div>
+</div>
