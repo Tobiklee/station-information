@@ -1,1 +1,7 @@
-<p>station-search works!</p>
+<button (click)="searchStation('Zoo')"></button>
+  <div *ngIf="stations$ | async as stations else noData">
+    <div *ngFor="let station of stations">
+      {{ station.name }}
+    </div>
+  </div>
+<ng-template #noData>Keine Station(en) gefunden</ng-template>

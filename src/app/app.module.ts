@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { StationModule } from './views/station/station.module';
 import { StationDetailsModule } from './views/station-details/station-details.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { StationDetailsModule } from './views/station-details/station-details.mo
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     CoreModule,
     SharedModule,
