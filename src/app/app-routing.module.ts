@@ -9,6 +9,7 @@ const routes: Routes = [
     loadChildren: () => import('./views/station/station.module').then(module => module.StationModule)
   },
   {
+    // TODO Lazy Loading vom Modul wie beim StationModule
     path: 'station/:id',
     component: StationDetailComponent
   },

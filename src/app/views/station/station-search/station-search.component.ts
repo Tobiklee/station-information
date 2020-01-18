@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { StationsApiService } from './stations-api.service';
 import { map } from 'rxjs/operators';
 import { Station } from '../../../shared/models/station.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-station-search',
@@ -13,7 +14,7 @@ export class StationSearchComponent implements OnInit {
 
   stations$: Observable<Station[]>;
 
-  constructor(private stationsApiService: StationsApiService) {
+  constructor(private stationsApiService: StationsApiService, private router: Router) {
   }
 
   ngOnInit() {
@@ -25,6 +26,10 @@ export class StationSearchComponent implements OnInit {
         return data.result;
       })
     );
+  }
+
+  navigateTo(id: string) {
+    this.router.navigate(['/station/', id]);
   }
 
 }
