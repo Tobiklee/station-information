@@ -1,13 +1,19 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
+import { HeaderBarComponent } from './header-bar/header-bar.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    HeaderBarComponent
+  ],
   imports: [
     CommonModule,
     SharedModule
+  ],
+  exports: [
+    HeaderBarComponent
   ]
 })
 export class CoreModule {

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { StationDetailComponent } from './views/station-details/station-detail/station-detail.component';
 
 
 const routes: Routes = [
@@ -9,13 +10,8 @@ const routes: Routes = [
   },
   {
     path: 'station/:id',
-    loadChildren: () => import('./views/station-details/station-details.module').then(module => module.StationDetailsModule)
+    component: StationDetailComponent
   },
-  {
-    path: '',
-    redirectTo: '',
-    pathMatch: 'full'
-  }
 ];
 
 @NgModule({
