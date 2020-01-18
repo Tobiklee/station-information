@@ -1,7 +1,15 @@
-<button (click)="searchStation('Zoo')"></button>
+<div class="container mx-auto border border-black rounded flex flex-col p-2 mt-4">
+  <label class="mx-auto text-center m-2">
+    Suche nach Bahnhofsname
+    <input class="border border-black rounded w-5/6" type="text" placeholder="Bahnhofname"/>
+  </label>
+  <button class="mx-auto border border-black rounded p-1" (click)="searchStation('Zoo')">Suche</button>
   <div *ngIf="stations$ | async as stations else noData">
-    <div *ngFor="let station of stations">
+    <div class="mx-auto text-center m-4" *ngFor="let station of stations">
       {{ station.name }}
     </div>
   </div>
-<ng-template #noData>Keine Station(en) gefunden</ng-template>
+  <ng-template #noData>
+    <div class="mx-auto text-center m-4" >Keine Station(en) gefunden</div>
+  </ng-template>
+</div>
