@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Station } from '../../../../shared/models/station.model';
+import { Station } from '../station.model';
 
 @Component({
   selector: 'app-search-result',
@@ -7,12 +7,9 @@ import { Station } from '../../../../shared/models/station.model';
   styleUrls: ['./search-result.component.scss']
 })
 export class SearchResultComponent implements OnInit {
-
   @Input() station: Station;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

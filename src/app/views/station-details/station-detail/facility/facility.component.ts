@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Facility } from '../../../../shared/models/facility.model';
+import { Facility } from '../facility.model';
 
 @Component({
   selector: 'app-facility',
@@ -7,12 +7,9 @@ import { Facility } from '../../../../shared/models/facility.model';
   styleUrls: ['./facility.component.scss']
 })
 export class FacilityComponent implements OnInit {
-
   @Input() facility: Facility;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

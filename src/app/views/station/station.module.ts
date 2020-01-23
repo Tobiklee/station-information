@@ -5,17 +5,8 @@ import { StationRoutingModule } from './station-routing.module';
 import { SearchResultComponent } from './station-search/search-result/search-result.component';
 import { SharedModule } from '../../shared/shared.module';
 
-
-
 @NgModule({
-  declarations: [
-    StationSearchComponent,
-    SearchResultComponent
-  ],
-  imports: [
-    CommonModule,
-    StationRoutingModule,
-    SharedModule
-  ]
+  declarations: [StationSearchComponent, SearchResultComponent],
+  imports: [CommonModule, StationRoutingModule]
 })
-export class StationModule { }
+export class StationModule {}

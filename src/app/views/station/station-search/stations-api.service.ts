@@ -2,15 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
 import { StationModule } from '../station.module';
-import { ApiStation } from '../../../shared/models/api-station.model';
+import { ApiStation } from './api-station.model';
 
 @Injectable({
   providedIn: StationModule
 })
 export class StationsApiService {
-
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   getStationBy(searchString: string) {
     // TODO Interceptor schreiben
@@ -19,7 +17,10 @@ export class StationsApiService {
       .set('Authorization', `Bearer ${environment.token}`);
 
     // TODO Es wird immer mit einem Limit von 20 und "*" vor und nach dem Suchstring gesucht
-    return this.http
-      .get<ApiStation>(`https://api.deutschebahn.com/stada/v2/stations?limit=20&searchstring=*${searchString}*`, { headers });
+    // TODO String als Konstante
+    return this.http.get<ApiStation>(
+      `https://api.deutschebahn.com/stada/v2/stations?limit=20&searchstring=*${searchString}*`,
+      { headers }
+    );
   }
 }

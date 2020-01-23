@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StationDetailsApiService } from './station-details-api.service';
 import { Observable } from 'rxjs';
-import { Facility } from '../../../shared/models/facility.model';
+import { Facility } from './facility.model';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -11,17 +11,17 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./station-detail.component.scss']
 })
 export class StationDetailComponent implements OnInit {
-
   facilities$: Observable<Facility[]>;
 
-  constructor(private activatedRoute: ActivatedRoute, private stationDetailsApiService: StationDetailsApiService) {
-  }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private stationDetailsApiService: StationDetailsApiService
+  ) {}
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.facilities$ = this.stationDetailsApiService.getStationFacilitiesBy(id).pipe(
-      map(data => data.facilities)
-    );
+    this.facilities$ = this.stationDetailsApiService
+      .getStationFacilitiesBy(id)
+      .pipe(map(data => data.facilities));
   }
-
 }

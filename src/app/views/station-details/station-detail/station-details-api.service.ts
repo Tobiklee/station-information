@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
-import { ApiFacility } from '../../../shared/models/api-facility.model';
+import { ApiFacility } from './api-facility.model';
 import { StationDetailsModule } from '../station-details.module';
 
 @Injectable({
   providedIn: StationDetailsModule
 })
 export class StationDetailsApiService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getStationFacilitiesBy(id: string) {
     // TODO Interceptor schreiben
@@ -18,7 +17,9 @@ export class StationDetailsApiService {
       .set('Authorization', `Bearer ${environment.token}`);
 
     // TODO Es wird immer mit einem Limit von 20 und "*" vor und nach dem Suchstring gesucht
-    return this.http
-      .get<ApiFacility>(`https://api.deutschebahn.com/fasta/v2/stations/${id}`, { headers });
+    return this.http.get<ApiFacility>(
+      `https://api.deutschebahn.com/fasta/v2/stations/${id}`,
+      { headers }
+    );
   }
 }
